@@ -15,8 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
         return $this->call([
             PerspectivaSeeder::class,
             ObjetivoEstrategicoSeeder::class,
@@ -29,6 +27,7 @@ class DatabaseSeeder extends Seeder
             ProyectoSeeder::class,
             UserSeeder::class,
             ResultadoClaveSeeder::class,
+            PosicionSeeder::class,
         ]);
     }
 }

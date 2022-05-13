@@ -25,4 +25,9 @@ class Comentario extends Model
     {
         return $this->belongsToMany(Accion::class, 'pivot_comentario_accion', 'comentario_id', 'accion_id');
     }
+
+    public function archivos()
+    {
+        return $this->hasMany(Archivo::class);
+    }
 }

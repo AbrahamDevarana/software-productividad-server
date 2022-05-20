@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\TipoAccion;
 use GuzzleHttp\Handler\Proxy;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -23,11 +24,13 @@ class DatabaseSeeder extends Seeder
             IniciativaSeeder::class,
             EstatusSeeder::class,
             PrioridadSeeder::class,
-            TipoProyectoSeeder::class,
             ProyectoSeeder::class,
             UserSeeder::class,
             ResultadoClaveSeeder::class,
             PosicionSeeder::class,
+            AccionSeeder::class,
+            TipoProyectoSeeder::class,
+            TipoAccionSeeder::class,
         ]);
     }
 }

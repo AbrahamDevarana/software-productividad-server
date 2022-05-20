@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
@@ -44,6 +45,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+    protected function setShortName(): Attribute
+    {
+
+        return Attribute::make(
+            function ($value) {
+                $name = '';
+                $explode = explode(' ', $this->$value);
+                foreach($explode as $x){
+                    $name .=  $x[0];
+                }
+                    return $this->attributes['short_name'] = $name; 
+            }
+        );
+        
+           
+    }
 
     public function proyectos(){
         return $this->belongsToMany(Proyecto::class, 'pivot_proyecto_responsable', 'user_id', 'proyecto_id');

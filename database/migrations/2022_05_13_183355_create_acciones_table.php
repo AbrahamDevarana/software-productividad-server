@@ -19,12 +19,13 @@ return new class extends Migration
             $table->string('descripcion');
             $table->foreignId('user_id')->constrained();
             $table->foreignID('estatus_id')->constrained();
-            $table->date('inicio_periodo');
-            $table->date('fin_periodo');
+            $table->datetime('inicio_periodo');
+            $table->datetime('fin_periodo');
             $table->smallInteger('orden');
             $table->foreignId('grupo_id')->constrained();
             $table->softDeletes('deleted_at');
             $table->unsignedInteger('resultado_clave_id')->nullable();
+            $table->unsignedInteger('tipo_accion_id')->nullable();
             $table->timestamps();
         });
     }

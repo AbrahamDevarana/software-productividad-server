@@ -50,4 +50,8 @@ class Accion extends Model
     public function tags(){
         return $this->belongsToMany(Tag::class, 'pivot_accion_tag', 'accion_id', 'tag_id');
     }
+
+    public function tipo_accion(){
+        return $this->hasOne(TipoAccion::class, 'id', 'tipo_accion_id');
+    }
 }

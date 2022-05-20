@@ -6,6 +6,7 @@ use App\Models\Accion;
 use App\Http\Requests\StoreAccionRequest;
 use App\Http\Requests\UpdateAccionRequest;
 use App\Http\Resources\AccionResource;
+use Illuminate\Http\Request;
 
 class AccionController extends Controller
 {
@@ -15,8 +16,8 @@ class AccionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $acciones = Accion::all();
+    {    
+        $acciones = Accion::with(['grupo', 'user', 'estatus', 'tags', 'tipo_accion'])->where('user_id', 1)->get();
         return new AccionResource($acciones);
     }
 
@@ -41,5 +42,19 @@ class AccionController extends Controller
     {
         $accion->delete();
         return new AccionResource($accion);
+    }
+
+    public function orderAccion(Request $request){
+
+        $filter = $request->get('filter');
+    
+        try {
+            $acciones = Accion::with(['grupo', 'user', 'estatus', 'tags', 'tipo_accion'])->where('user_id', 1)->orderBy($filter, 'asc')->get();
+            return new AccionResource($acciones);
+        } catch (\Throwable $th) {
+            $acciones = Accion::with(['grupo', 'user', 'estatus', 'tags', 'tipo_accion'])->where('user_id', 1)->get();
+            return new AccionResource($acciones);
+        }
+
     }
 }

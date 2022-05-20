@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pitov_accion_tag', function (Blueprint $table) {
+        Schema::create('pivot_accion_tag', function (Blueprint $table) {
             $table->id();
             $table->foreignId('accion_id')->constrained();
             $table->foreignId('tag_id')->constrained();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pitov_accion_tag');
+        Schema::dropIfExists('pivot_accion_tag');
     }
 };

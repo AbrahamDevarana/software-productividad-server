@@ -6,6 +6,7 @@ use App\Models\ObjetivoEstrategico;
 use App\Http\Requests\StoreObjetivoEstrategicoRequest;
 use App\Http\Requests\UpdateObjetivoEstrategicoRequest;
 use App\Http\Resources\ObjetivoEstrategicoResource;
+use Illuminate\Http\Request;
 
 class ObjetivoEstrategicoController extends Controller
 {
@@ -38,5 +39,10 @@ class ObjetivoEstrategicoController extends Controller
     {
         $objetivoEstrategico->delete();
         return response()->json(['message' => 'Objetivo eliminado']);
+    }
+
+    public function filtrarPorIniciativa(Request $request){ 
+        $objetivos = ObjetivoEstrategico::where('iniciativa_id', $request->iniciativa_id)->get();
+        return new ObjetivoEstrategicoResource($objetivos);
     }
 }

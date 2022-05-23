@@ -6,11 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Accion extends Model
+class Tarea extends Model
 {
     use HasFactory, SoftDeletes;
-
-    protected $table = 'acciones';
 
     protected $fillable = [
         'nombre',
@@ -40,18 +38,22 @@ class Accion extends Model
     }
 
     public function responsable(){
-        return $this->belongsToMany(User::class, 'pivot_accion_proyecto', 'accion_id', 'user_id');
+        return $this->belongsToMany(User::class, 'pivot_tarea_proyecto', 'tarea_id', 'user_id');
     }
 
     public function comentarios(){
-        return $this->belongsToMany(Comentario::class, 'pivot_comentario_accion', 'accion_id', 'comentario_id');
+        return $this->belongsToMany(Comentario::class, 'pivot_comentario_tarea', 'tarea_id', 'comentario_id');
     }
 
     public function tags(){
-        return $this->belongsToMany(Tag::class, 'pivot_accion_tag', 'accion_id', 'tag_id');
+        return $this->belongsToMany(Tag::class, 'pivot_tag_tarea', 'tarea_id', 'tag_id');
     }
 
-    public function tipo_accion(){
-        return $this->hasOne(TipoAccion::class, 'id', 'tipo_accion_id');
+    public function tipo_tarea(){
+        return $this->hasOne(TipoTarea::class, 'id', 'tipo_tarea_id');
+    }
+
+    public function resultado_clave(){
+        return $this->belongsTo(ResultadoClave::class, 'resultado_clave_id');
     }
 }

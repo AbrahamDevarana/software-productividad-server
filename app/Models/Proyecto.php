@@ -48,4 +48,8 @@ class Proyecto extends Model
     public function estatus(){
         return $this->belongsTo(Estatus::class);
     }
+
+    public function resultados_clave(){
+        return $this->hasMany(ResultadoClave::class);
+    }
 }

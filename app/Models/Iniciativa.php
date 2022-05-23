@@ -24,4 +24,9 @@ class Iniciativa extends Model
     {
         return $this->belongsTo(ObjetivoEstrategico::class);
     }
+
+    public function proyectos()
+    {
+        return $this->hasMany(Proyecto::class);
+    }
 }

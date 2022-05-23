@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pivot_accion_comentario', function (Blueprint $table) {
+        Schema::create('pivot_tag_tarea', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('accion_id')->constrained();
-            $table->foreignId('comentario_id')->constrained();
+            $table->foreignId('tarea_id')->constrained();
+            $table->foreignId('tag_id')->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pivot_accion_comentario');
+        Schema::dropIfExists('pivot_tag_tarea');
     }
 };

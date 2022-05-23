@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('acciones', function (Blueprint $table) {
+        Schema::create('tareas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('descripcion');
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->foreignId('grupo_id')->constrained();
             $table->softDeletes('deleted_at');
             $table->unsignedInteger('resultado_clave_id')->nullable();
-            $table->unsignedInteger('tipo_accion_id')->nullable();
+            $table->unsignedInteger('tipo_tarea_id')->nullable();
             $table->timestamps();
         });
     }
@@ -37,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('acciones');
+        Schema::dropIfExists('tareas');
     }
 };

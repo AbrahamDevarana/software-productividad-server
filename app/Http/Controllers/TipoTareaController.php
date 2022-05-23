@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\TipoAccionResource;
-use App\Models\TipoAccion;
+use App\Http\Resources\TipoTareaResource;
+use App\Models\TipoTarea;
 use Illuminate\Http\Request;
 
-class TipoAccionController extends Controller
+class TipoTareaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class TipoAccionController extends Controller
      */
     public function index()
     {
-        $tipo_acciones = TipoAccion::all();
-        return new TipoAccionResource($tipo_acciones);
+        $tipo_tareas = TipoTarea::all();
+        return new TipoTareaResource($tipo_tareas);
     }
 
     /**
@@ -43,10 +43,10 @@ class TipoAccionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TipoAccion  $tipoAccion
+     * @param  \App\Models\TipoTarea  $tipoTarea
      * @return \Illuminate\Http\Response
      */
-    public function show(TipoAccion $tipoAccion)
+    public function show(TipoTarea $tipoTarea)
     {
         //
     }
@@ -54,10 +54,10 @@ class TipoAccionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\TipoAccion  $tipoAccion
+     * @param  \App\Models\TipoTarea  $tipoTarea
      * @return \Illuminate\Http\Response
      */
-    public function edit(TipoAccion $tipoAccion)
+    public function edit(TipoTarea $tipoTarea)
     {
         //
     }
@@ -66,10 +66,10 @@ class TipoAccionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TipoAccion  $tipoAccion
+     * @param  \App\Models\TipoTarea  $tipoTarea
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TipoAccion $tipoAccion)
+    public function update(Request $request, TipoTarea $tipoTarea)
     {
         //
     }
@@ -77,10 +77,10 @@ class TipoAccionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TipoAccion  $tipoAccion
+     * @param  \App\Models\TipoTarea  $tipoTarea
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TipoAccion $tipoAccion)
+    public function destroy(TipoTarea $tipoTarea)
     {
         //
     }

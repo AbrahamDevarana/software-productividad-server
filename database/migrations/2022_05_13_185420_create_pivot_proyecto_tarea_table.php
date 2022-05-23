@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_accion', function (Blueprint $table) {
+        Schema::create('pivot_tarea_accion', function (Blueprint $table) {
             $table->id();
-            $table->string('descripcion');
-            $table->softDeletes('deleted_at');
+            $table->foreignId('accion_id')->constrained();
+            $table->foreignId('tarea_id')->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_accion');
+        Schema::dropIfExists('pivot_tarea_accion');
     }
 };

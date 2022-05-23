@@ -29,5 +29,20 @@ class ProyectoSeeder extends Seeder
             'progreso' => 0,
 
         ]);
+
+        Proyecto::create([
+            'nombre' => 'Proyecto 2',
+            'descripcion' => 'Descripcion del proyecto 2',
+            'user_id' => 1,
+            'inicio_periodo' => '2020-01-01',
+            'fin_periodo' => '2020-12-31',
+            'estatus_id' => 1,
+            'prioridad_id' => 1,
+            'enfoque_id' => 1,
+            'iniciativa_id' => 1,
+            'tipo_proyecto_id' => 1,
+            'progreso' => 0,
+
+        ]);
     }
 }

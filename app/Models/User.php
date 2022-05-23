@@ -71,8 +71,8 @@ class User extends Authenticatable
         return $this->belongsToMany(ResultadoClave::class, 'pivot_proyecto_resultado_clave', 'user_id', 'resultado_clave_id');
     }
     
-    public function acciones(){
-        return $this->belongsToMany(Accion::class, 'pivot_accion_proyecto', 'user_id', 'accion_id');
+    public function tareas(){
+        return $this->belongsToMany(Tarea::class, 'pivot_proyecto_tarea', 'user_id', 'tarea_id');
     }
 
     public function equipos(){

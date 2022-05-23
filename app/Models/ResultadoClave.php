@@ -29,4 +29,12 @@ class ResultadoClave extends Model
     public function responsable(){
         return $this->belongsToMany(User::class, 'pivot_proyecto_resultado_clave', 'resultado_clave_id', 'user_id');
     }
+
+    public function proyectos(){
+        return $this->belongsToMany(Proyecto::class, 'pivot_proyecto_resultado_clave', 'resultado_clave_id', 'proyecto_id');
+    }
+
+    public function tareas(){
+        return $this->hasMany(Tarea::class);
+    }
 }

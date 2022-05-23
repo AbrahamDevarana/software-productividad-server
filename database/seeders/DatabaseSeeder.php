@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\TipoAccion;
+use App\Models\TipoTarea;
 use GuzzleHttp\Handler\Proxy;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use LDAP\Result;
 
 class DatabaseSeeder extends Seeder
 {
@@ -28,9 +29,9 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ResultadoClaveSeeder::class,
             PosicionSeeder::class,
-            AccionSeeder::class,
+            TareaSeeder::class,
             TipoProyectoSeeder::class,
-            TipoAccionSeeder::class,
+            TipoTareaSeeder::class,
         ]);
     }
 }

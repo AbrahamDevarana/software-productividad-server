@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\TipoAccion;
+use App\Models\TipoTarea;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class TipoAccionSeeder extends Seeder
+class TipoTareaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,7 +18,7 @@ class TipoAccionSeeder extends Seeder
         $arryTipoProyecto = ['Personal', 'Objetivos'];
 
         foreach ($arryTipoProyecto as $proyecto) {
-            TipoAccion::create([
+            TipoTarea::create([
                 'descripcion' => $proyecto,
             ]);
         }

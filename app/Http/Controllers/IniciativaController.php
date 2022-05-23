@@ -19,6 +19,12 @@ class IniciativaController extends Controller
         $iniciativas = Iniciativa::where('estatus_id', 1)->get();
         return new IniciativaResource($iniciativas);
     }
+
+    public function show(Iniciativa $iniciativa)
+    {
+        $iniciativa = Iniciativa::findOrFail($iniciativa);
+        return new IniciativaResource($iniciativa);
+    }
     
     public function store(StoreIniciativaRequest $request)
     {

@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Accion;
+use App\Models\Tarea;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class AccionSeeder extends Seeder
+class TareaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,17 +17,17 @@ class AccionSeeder extends Seeder
     public function run()
     {
 
-        DB::table('tipo_accion')->insert([
+        DB::table('tipo_tarea')->insert([
             'descripcion' => 'No Definido',
         ]);
-        DB::table('tipo_accion')->insert([
+        DB::table('tipo_tarea')->insert([
             'descripcion' => 'Objetivos',
         ]);
-        DB::table('tipo_accion')->insert([
+        DB::table('tipo_tarea')->insert([
             'descripcion' => 'Personal',
         ]);
 
-        Accion::create([
+        Tarea::create([
             'nombre' => 'Acción 1',
             'descripcion' => 'Descripción de la acción 1',
             'user_id' => 1,
@@ -36,10 +36,10 @@ class AccionSeeder extends Seeder
             'fin_periodo' => '2020-12-31',
             'orden' => 1,
             'grupo_id' => 1,
-            'tipo_accion_id' => 3,
+            'tipo_tarea_id' => 3,
             'resultado_clave_id' => 1,
         ]);
-        Accion::create([
+        Tarea::create([
             'nombre' => 'Acción 2',
             'descripcion' => 'Descripción de la acción 2',
             'user_id' => 1,
@@ -48,10 +48,10 @@ class AccionSeeder extends Seeder
             'fin_periodo' => '2020-12-31',
             'orden' => 1,
             'grupo_id' => 1,
-            'tipo_accion_id' => 2,
+            'tipo_tarea_id' => 2,
             'resultado_clave_id' => 1,
         ]);
-        Accion::create([
+        Tarea::create([
             'nombre' => 'Acción 3',
             'descripcion' => 'Descripción de la acción 3',
             'user_id' => 1,
@@ -60,7 +60,7 @@ class AccionSeeder extends Seeder
             'fin_periodo' => '2020-12-31',
             'orden' => 1,
             'grupo_id' => 1,
-            'tipo_accion_id' => 1,
+            'tipo_tarea_id' => 1,
             'resultado_clave_id' => 1,
         ]);
 

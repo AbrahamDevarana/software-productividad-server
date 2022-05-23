@@ -16,9 +16,14 @@ class PerspectivaController extends Controller
      */
     public function index()
     {
-        // $this->authorize('viewAny', Perspectiva::class);
         $perspectivas = Perspectiva::where('estatus_id', 1)->get();
         return new PerspectivaResource($perspectivas);
+    }
+
+    public function show (Perspectiva $perspectiva)
+    {
+        $perspectiva = Perspectiva::findOrFail($perspectiva);
+        return new PerspectivaResource($perspectiva);
     }
 
     public function store(StorePerspectivaRequest $request)
